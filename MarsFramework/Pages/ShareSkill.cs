@@ -1,5 +1,9 @@
-﻿using OpenQA.Selenium;
+﻿using MarsFramework.Config;
+using MarsFramework.Global;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using RelevantCodes.ExtentReports.Model;
 
 namespace MarsFramework.Pages
 {
@@ -11,7 +15,7 @@ namespace MarsFramework.Pages
         }
 
         //Click on ShareSkill Button
-        [FindsBy(How = How.LinkText, Using = "Share Skill")]
+        [FindsBy(How = How.XPath, Using = "//a[contains(.,'Share Skill')]")]
         private IWebElement ShareSkillButton { get; set; }
 
         //Enter the Title in textbox
@@ -79,7 +83,7 @@ namespace MarsFramework.Pages
         private IWebElement CreditAmount { get; set; }
 
         //Click on Active/Hidden option
-        [FindsBy(How = How.XPath, Using = "//form/div[10]/div[@class='twelve wide column']/div/div[@class = 'field']")]
+        [FindsBy(How = How.XPath, Using = "//label[contains(.,'Active')]")]
         private IWebElement ActiveOption { get; set; }
 
         //Click on Save button
@@ -88,7 +92,24 @@ namespace MarsFramework.Pages
 
         internal void EnterShareSkill()
         {
-
+            GlobalDefinitions.ExcelLib.PopulateInCollection(MarsResource.ShareSkillExcelPath, "ShareSkill");
+            GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Share Skill')]"), 10);
+            ShareSkillButton.Click();
+            Title.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Title"));
+            Description.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Description"));
+            SelectElement Category = new SelectElement(CategoryDropDown);
+            Category.SelectByText(GlobalDefinitions.ExcelLib.ReadData(2, "Category"));
+            Tags.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Tags")+ "\n");
+            ServiceTypeOptions.Click();
+            LocationTypeOption.Click();
+            StartDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Startdate"));
+            EndDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Enddate"));
+            Days.Click();
+            StartTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Starttime"));
+            StartTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Endtime"));
+            SkillTradeOption.Click();
+            SkillExchange.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Skill-Exchange"));
+            ActiveOption.Click();
         }
 
         internal void EditShareSkill()

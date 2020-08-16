@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using MarsFramework.Config;
+using MarsFramework.Global;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace MarsFramework.Pages
@@ -31,7 +33,10 @@ namespace MarsFramework.Pages
 
         internal void LoginSteps()
         {
-
+            SignIntab.Click();
+            Email.SendKeys(MarsResource.Email);
+            Password.SendKeys(MarsResource.Password);
+            LoginBtn.Click();
         }
     }
 }
