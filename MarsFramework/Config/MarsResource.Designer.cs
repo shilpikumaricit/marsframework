@@ -97,6 +97,15 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\ExcelData\TestDataManageListings.xlsx.
+        /// </summary>
+        internal static string ManageListingsExcelPath {
+            get {
+                return ResourceManager.GetString("ManageListingsExcelPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shilpi@01.
         /// </summary>
         internal static string Password {

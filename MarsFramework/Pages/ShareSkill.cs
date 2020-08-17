@@ -1,4 +1,5 @@
-﻿using MarsFramework.Config;
+﻿using System.Threading;
+using MarsFramework.Config;
 using MarsFramework.Global;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -62,6 +63,10 @@ namespace MarsFramework.Pages
         [FindsBy(How = How.XPath, Using = "//div[3]/div[2]/input[1]")]
         private IWebElement StartTime { get; set; }
 
+        //Storing the EndTime
+        [FindsBy(How = How.XPath, Using = "//div[3]/div[3]/input[1]")]
+        private IWebElement EndTime { get; set; }
+
         //Click on StartTime dropdown
         [FindsBy(How = How.XPath, Using = "//div[3]/div[2]/input[1]")]
         private IWebElement StartTimeDropDown { get; set; }
@@ -83,7 +88,7 @@ namespace MarsFramework.Pages
         private IWebElement CreditAmount { get; set; }
 
         //Click on Active/Hidden option
-        [FindsBy(How = How.XPath, Using = "//label[contains(.,'Active')]")]
+        [FindsBy(How = How.XPath, Using = "(//input[@name='Available'])[2]")]
         private IWebElement ActiveOption { get; set; }
 
         //Click on Save button
@@ -99,6 +104,8 @@ namespace MarsFramework.Pages
             Description.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Description"));
             SelectElement Category = new SelectElement(CategoryDropDown);
             Category.SelectByText(GlobalDefinitions.ExcelLib.ReadData(2, "Category"));
+            SelectElement SubCategory = new SelectElement(SubCategoryDropDown);
+            SubCategory.SelectByText(GlobalDefinitions.ExcelLib.ReadData(2, "SubCategory"));
             Tags.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Tags")+ "\n");
             ServiceTypeOptions.Click();
             LocationTypeOption.Click();
@@ -106,15 +113,37 @@ namespace MarsFramework.Pages
             EndDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Enddate"));
             Days.Click();
             StartTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Starttime"));
-            StartTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Endtime"));
+            EndTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Endtime"));
             SkillTradeOption.Click();
-            SkillExchange.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Skill-Exchange"));
+            SkillExchange.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Skill-Exchange")+"\n");
             ActiveOption.Click();
+            Save.Click();
         }
 
         internal void EditShareSkill()
         {
-
+            GlobalDefinitions.ExcelLib.PopulateInCollection(MarsResource.ManageListingsExcelPath, "ManageListings");
+            GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Share Skill')]"), 10);
+            ShareSkillButton.Click();
+            Title.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Title"));
+            Description.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Description"));
+            SelectElement Category = new SelectElement(CategoryDropDown);
+            Category.SelectByText(GlobalDefinitions.ExcelLib.ReadData(2, "Category"));
+            SelectElement SubCategory = new SelectElement(SubCategoryDropDown);
+            SubCategory.SelectByText(GlobalDefinitions.ExcelLib.ReadData(2, "SubCategory"));
+            Tags.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Tags") + "\n");
+            ServiceTypeOptions.Click();
+            LocationTypeOption.Click();
+            StartDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Startdate"));
+            EndDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Enddate"));
+            Days.Click();
+            StartTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Starttime"));
+            EndTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Endtime"));
+            SkillTradeOption.Click();
+            SkillExchange.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Skill-Exchange") + "\n");
+            ActiveOption.Click();
+            Save.Click();
         }
+
     }
 }

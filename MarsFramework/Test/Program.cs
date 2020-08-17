@@ -10,11 +10,25 @@ namespace MarsFramework
         class User : Global.Base
         {
 
-            [Test]
-            public void Test()
+            [Test, Order(1)]
+            public void AddSkill()
             {
                 ShareSkill shareSkill = new ShareSkill();
                 shareSkill.EnterShareSkill();
+            }
+
+            [Test, Order(2)]
+            public void EditSkill()
+            {
+                ManageListings manageListings = new ManageListings();
+                manageListings.EditListing();
+            }
+
+            [Test, Order(3)]
+            public void DeleteSkill()
+            {
+                ManageListings manageListings = new ManageListings();
+                manageListings.DeleteListing();
             }
         }
     }

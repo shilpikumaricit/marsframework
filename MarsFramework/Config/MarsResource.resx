@@ -132,6 +132,10 @@
     <value>true</value>
     <comment>If true Login, else Register</comment>
   </data>
+  <data name="ManageListingsExcelPath" xml:space="preserve">
+    <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\ExcelData\TestDataManageListings.xlsx</value>
+    <comment>Store the path for Manage Listing</comment>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Shilpi@01</value>
     <comment>Password for applicatio</comment>
