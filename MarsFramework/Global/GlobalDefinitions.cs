@@ -24,8 +24,18 @@ namespace MarsFramework.Global
         }
         public static IWebElement WaitForElement(IWebDriver driver, By by, int timeOutinSeconds)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOutinSeconds));
-            return (wait.Until(ExpectedConditions.ElementIsVisible(by)));
+            IWebElement elementfound = null;
+            try
+            {
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOutinSeconds));
+                elementfound = wait.Until(ExpectedConditions.ElementIsVisible(by));
+            }
+            catch (WebDriverTimeoutException)
+            {
+                Console.WriteLine("Please fail WebDriverTimeoutException");
+            }
+
+            return elementfound;
         }
         #endregion
 

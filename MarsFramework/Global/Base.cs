@@ -17,6 +17,7 @@ namespace MarsFramework.Global
         public static String ExcelPath = MarsResource.ExcelPath;
         public static string ScreenshotPath = MarsResource.ScreenShotPath;
         public static string ReportPath = MarsResource.ReportPath;
+        protected ManageListings manageListing;
         #endregion
 
         #region reports
@@ -61,6 +62,9 @@ namespace MarsFramework.Global
                 SignUp obj = new SignUp();
                 obj.register();
             }
+
+            // Create manage Listing Object
+            manageListing = new ManageListings();
 
         }
 

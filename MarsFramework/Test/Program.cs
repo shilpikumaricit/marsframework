@@ -1,4 +1,5 @@
-﻿using MarsFramework.Pages;
+﻿using System;
+using MarsFramework.Pages;
 using NUnit.Framework;
 
 namespace MarsFramework
@@ -15,20 +16,45 @@ namespace MarsFramework
             {
                 ShareSkill shareSkill = new ShareSkill();
                 shareSkill.EnterShareSkill();
+                bool actual = manageListing.Verify();
+                if (actual)
+                {
+                    Assert.IsTrue(actual);
+                }
+                else
+                {
+                    throw new Exception("Add to Share Skill Failed");
+                }
             }
 
             [Test, Order(2)]
             public void EditSkill()
             {
-                ManageListings manageListings = new ManageListings();
-                manageListings.EditListing();
+                manageListing.EditListing();
+                bool actual = manageListing.Verify();
+                if (actual)
+                {
+                    Assert.IsTrue(actual);
+                }
+                else
+                {
+                    throw new Exception("Edit to Manage Listing Failed");
+                }
             }
 
             [Test, Order(3)]
             public void DeleteSkill()
             {
-                ManageListings manageListings = new ManageListings();
-                manageListings.DeleteListing();
+                manageListing.DeleteListing();
+                bool actual = manageListing.Verify();
+                if (!actual)
+                {
+                    Assert.IsFalse(actual);
+                }
+                else
+                {
+                    throw new Exception("Delete to Manage Listing Failed");
+                }
             }
         }
     }

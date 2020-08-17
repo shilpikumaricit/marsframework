@@ -1,4 +1,5 @@
-﻿using MarsFramework.Config;
+﻿using System;
+using MarsFramework.Config;
 using MarsFramework.Global;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -12,6 +13,37 @@ namespace MarsFramework.Pages
             PageFactory.InitElements(Global.GlobalDefinitions.driver, this);
             GlobalDefinitions.ExcelLib.PopulateInCollection(MarsResource.ManageListingsExcelPath, "ManageListings");
         }
+
+        internal bool Verify()
+        {
+            bool recordFound = false;
+            GlobalDefinitions.ExcelLib.PopulateInCollection(MarsResource.ManageListingsExcelPath, "ManageListings");
+            GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Manage Listings')]"), 10);
+            manageListingsLink.Click();
+            IWebElement WebElement = GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table"), 10);
+           
+            if(WebElement == null)
+            {
+                return recordFound;
+            }
+            int ManageListingCount = GlobalDefinitions.driver.FindElements(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/div[1]/table")).Count;
+            
+            for (int i = 1; i <= ManageListingCount; i++)
+            {
+                string Category = string.Format("(//td[contains(.,'{0}')])[1]", GlobalDefinitions.ExcelLib.ReadData(2, "Category"));
+                if (GlobalDefinitions.driver.FindElement(By.XPath(Category)).Text == 
+                    GlobalDefinitions.ExcelLib.ReadData(2, "Category"))
+                {
+                    recordFound = true;
+                    break;
+                }
+            }
+            return recordFound;
+        }
+
+        //Manage listing Table XPath
+        [FindsBy(How = How.XPath, Using = "//*[@id='listing - management - section']/div[2]/div[1]/div[1]/table/")]
+        private IWebElement ManageListingTable { get; set; }
 
         //Click on Manage Listings Link
         [FindsBy(How = How.XPath, Using = "//a[contains(.,'Manage Listings')]")]
