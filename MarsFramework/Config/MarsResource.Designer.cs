@@ -88,6 +88,24 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\extent-config.xml.
+        /// </summary>
+        internal static string ExtentReportConfigFilePath {
+            get {
+                return ResourceManager.GetString("ExtentReportConfigFilePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExtentReports.html.
+        /// </summary>
+        internal static string ExtentReportFileName {
+            get {
+                return ResourceManager.GetString("ExtentReportFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to true.
         /// </summary>
         internal static string IsLogin {
@@ -124,7 +142,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to your path.
+        ///   Looks up a localized string similar to C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\TestReports\ExtentReports 2.0_files.
         /// </summary>
         internal static string ReportXMLPath {
             get {

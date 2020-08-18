@@ -4,7 +4,7 @@ using MarsFramework.Global;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
-using RelevantCodes.ExtentReports.Model;
+//using RelevantCodes.ExtentReports.Model;
 
 namespace MarsFramework.Pages
 {

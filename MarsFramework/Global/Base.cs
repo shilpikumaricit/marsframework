@@ -1,9 +1,9 @@
-﻿using MarsFramework.Config;
+﻿using AventStack.ExtentReports;
+using MarsFramework.Config;
 using MarsFramework.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using RelevantCodes.ExtentReports;
 using System;
 using static MarsFramework.Global.GlobalDefinitions;
 
@@ -18,22 +18,13 @@ namespace MarsFramework.Global
         public static string ScreenshotPath = MarsResource.ScreenShotPath;
         public static string ReportPath = MarsResource.ReportPath;
         protected ManageListings manageListing;
-        #endregion
-
-        #region reports
-        public static ExtentTest test;
-        public static ExtentReports extent;
-        #endregion
-
-        #region setup and tear down
-        [SetUp]
+        protected ExtentReports extent;
+        
+        [OneTimeSetUp]
         public void Inititalize()
         {
-
-            // advisasble to read this documentation before proceeding http://extentreports.relevantcodes.com/net/
             switch (Browser)
             {
-
                 case 1:
                     GlobalDefinitions.driver = new FirefoxDriver();
                     break;
@@ -42,13 +33,12 @@ namespace MarsFramework.Global
                     GlobalDefinitions.driver.Manage().Window.Maximize();
                     GlobalDefinitions.driver.Navigate().GoToUrl(MarsResource.url);
                     break;
-
             }
 
             #region Initialise Reports
 
-            extent = new ExtentReports(ReportPath, false, DisplayOrder.NewestFirst);
-            extent.LoadConfig(MarsResource.ReportXMLPath);
+            //extent = new ExtentReports(ReportPath, false, DisplayOrder.NewestFirst);
+           // extent.LoadConfig(MarsResource.ReportXMLPath);
 
             #endregion
 
@@ -66,20 +56,21 @@ namespace MarsFramework.Global
             // Create manage Listing Object
             manageListing = new ManageListings();
 
+            // Creating extent report for the tests
+            extent = ExtendReportManager.getInstance();
+
         }
 
-
         [TearDown]
+        public void TakeScreenshot()
+        {
+            SaveScreenShotClass.SaveScreenshot(GlobalDefinitions.driver, "Report");
+        }
+
+        [OneTimeTearDown]
         public void TearDown()
         {
-            // Screenshot
-            String img = SaveScreenShotClass.SaveScreenshot(GlobalDefinitions.driver, "Report");//AddScreenCapture(@"E:\Dropbox\VisualStudio\Projects\Beehive\TestReports\ScreenShots\");
-            //test.Log(LogStatus.Info, "Image example: " + img);
-            // end test. (Reports)
-           // extent.EndTest(test);
-            // calling Flush writes everything to the log file (Reports)
-           // extent.Flush();
-            // Close the driver :)            
+            extent.Flush();
             GlobalDefinitions.driver.Close();
             GlobalDefinitions.driver.Quit();
         }

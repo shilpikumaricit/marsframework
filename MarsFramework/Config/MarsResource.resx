@@ -128,6 +128,14 @@
   <data name="ExcelPath" xml:space="preserve">
     <value>C:\Users\Shilpi\source\repos\marsframework\MarsFramework\ExcelData\TestData.xlsx</value>
   </data>
+  <data name="ExtentReportConfigFilePath" xml:space="preserve">
+    <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\extent-config.xml</value>
+    <comment>Extent report Config file path</comment>
+  </data>
+  <data name="ExtentReportFileName" xml:space="preserve">
+    <value>ExtentReports.html</value>
+    <comment>Extent report file name</comment>
+  </data>
   <data name="IsLogin" xml:space="preserve">
     <value>true</value>
     <comment>If true Login, else Register</comment>
@@ -144,7 +152,7 @@
     <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\TestReports</value>
   </data>
   <data name="ReportXMLPath" xml:space="preserve">
-    <value>your path</value>
+    <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\TestReports\ExtentReports 2.0_files</value>
   </data>
   <data name="ScreenShotPath" xml:space="preserve">
     <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\TestReports\Screenshots</value>
