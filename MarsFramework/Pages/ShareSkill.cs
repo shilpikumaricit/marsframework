@@ -4,6 +4,8 @@ using MarsFramework.Global;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using AutoItX3Lib;
+using static MarsFramework.Global.GlobalDefinitions;
 //using RelevantCodes.ExtentReports.Model;
 
 namespace MarsFramework.Pages
@@ -91,38 +93,27 @@ namespace MarsFramework.Pages
         [FindsBy(How = How.XPath, Using = "(//input[@name='Available'])[2]")]
         private IWebElement ActiveOption { get; set; }
 
+        //Click on Upload Image button
+        [FindsBy(How = How.XPath, Using = "//i[@class='huge plus circle icon padding-25']")]
+        private IWebElement UploadImage { get; set; }
+
         //Click on Save button
         [FindsBy(How = How.XPath, Using = "//input[@value='Save']")]
         private IWebElement Save { get; set; }
 
         internal void EnterShareSkill()
         {
-            GlobalDefinitions.ExcelLib.PopulateInCollection(MarsResource.ShareSkillExcelPath, "ShareSkill");
-            GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Share Skill')]"), 10);
-            ShareSkillButton.Click();
-            Title.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Title"));
-            Description.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Description"));
-            SelectElement Category = new SelectElement(CategoryDropDown);
-            Category.SelectByText(GlobalDefinitions.ExcelLib.ReadData(2, "Category"));
-            SelectElement SubCategory = new SelectElement(SubCategoryDropDown);
-            SubCategory.SelectByText(GlobalDefinitions.ExcelLib.ReadData(2, "SubCategory"));
-            Tags.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Tags")+ "\n");
-            ServiceTypeOptions.Click();
-            LocationTypeOption.Click();
-            StartDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Startdate"));
-            EndDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Enddate"));
-            Days.Click();
-            StartTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Starttime"));
-            EndTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Endtime"));
-            SkillTradeOption.Click();
-            SkillExchange.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Skill-Exchange")+"\n");
-            ActiveOption.Click();
-            Save.Click();
+            FillSkillDetails();
         }
 
         internal void EditShareSkill()
         {
-            GlobalDefinitions.ExcelLib.PopulateInCollection(MarsResource.ManageListingsExcelPath, "ManageListings");
+            FillSkillDetails();
+        }
+
+        private void FillSkillDetails()
+        {
+            GlobalDefinitions.ExcelLib.PopulateInCollection(MarsResource.ShareSkillExcelPath, "ShareSkill");
             GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Share Skill')]"), 10);
             ShareSkillButton.Click();
             Title.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Title"));
@@ -142,6 +133,9 @@ namespace MarsFramework.Pages
             SkillTradeOption.Click();
             SkillExchange.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Skill-Exchange") + "\n");
             ActiveOption.Click();
+
+            UploadImage.Click();
+            AutoITFileUpload.UploadFile();
             Save.Click();
         }
 

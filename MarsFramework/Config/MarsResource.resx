@@ -160,6 +160,10 @@
   <data name="ShareSkillExcelPath" xml:space="preserve">
     <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\ExcelData\TestDataShareSkill.xlsx</value>
   </data>
+  <data name="UploadImage" xml:space="preserve">
+    <value>C:\Users\Shilpi\source\repos\marsframework\MarsFramework\TestReports\Screenshots\Automation.png</value>
+    <comment>Path of the file to get uploaded</comment>
+  </data>
   <data name="url" xml:space="preserve">
     <value>localhost:5000</value>
   </data>

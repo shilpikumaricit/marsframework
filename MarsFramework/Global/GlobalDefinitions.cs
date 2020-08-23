@@ -1,4 +1,6 @@
-﻿using Excel;
+﻿using AutoItX3Lib;
+using Excel;
+using MarsFramework.Config;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -7,6 +9,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace MarsFramework.Global
 {
@@ -162,5 +165,19 @@ namespace MarsFramework.Global
             }
         }
         #endregion
+
+        public class AutoITFileUpload
+        {
+            public static void UploadFile()
+            {
+                AutoItX3 autoItX3 = new AutoItX3();
+                autoItX3.WinActivate("Open");
+                Thread.Sleep(5000);
+                autoItX3.Send(MarsResource.UploadImage);
+                Thread.Sleep(5000);
+                autoItX3.Send("{ENTER}");
+                
+            }
+        }
     }
 }

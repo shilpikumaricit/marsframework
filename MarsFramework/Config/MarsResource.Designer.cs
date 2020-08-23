@@ -169,6 +169,15 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to C:\Users\Shilpi\source\repos\marsframework\MarsFramework\TestReports\Screenshots\Automation.png.
+        /// </summary>
+        internal static string UploadImage {
+            get {
+                return ResourceManager.GetString("UploadImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to localhost:5000.
         /// </summary>
         internal static string url {
