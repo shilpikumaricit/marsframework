@@ -130,7 +130,7 @@ namespace MarsFramework.Pages
             SelectElement SubCategory = new SelectElement(SubCategoryDropDown);
             //Selecting the element by text
             SubCategory.SelectByText(GlobalDefinitions.ExcelLib.ReadData(2, "SubCategory"));
-            //Adding the tag in tags inpute field
+            //Adding the tag in tags input field
             Tags.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Tags") + "\n");
             //Selecting the service type option
             ServiceTypeOptions.Click();
@@ -142,13 +142,13 @@ namespace MarsFramework.Pages
             EndDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Enddate"));
             //click on days button
             Days.Click();
-            //sending the data in start time inpute field
+            //sending the data in start time input field
             StartTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Starttime"));
-            //sending the data in end time inpute field
+            //sending the data in end time input field
             EndTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Endtime"));
             //click on skilltrade option
             SkillTradeOption.Click();
-            //sending the data in skillexchange inpute field
+            //sending the data in skillexchange input field
             SkillExchange.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Skill-Exchange") + "\n");
             //clicking on active option button
             ActiveOption.Click();
