@@ -13,9 +13,12 @@ namespace MarsFramework.Pages
             PageFactory.InitElements(Global.GlobalDefinitions.driver, this);
             GlobalDefinitions.ExcelLib.PopulateInCollection(MarsResource.ManageListingsExcelPath, "ManageListings");
         }
-
+        
+        /* verifying the data is added edited and remove successfully
+         * 
+         */
         internal bool Verify()
-        {
+        { 
             bool recordFound = false;
             GlobalDefinitions.ExcelLib.PopulateInCollection(MarsResource.ManageListingsExcelPath, "ManageListings");
             GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Manage Listings')]"), 10);
@@ -66,16 +69,17 @@ namespace MarsFramework.Pages
         private IWebElement clickActionsButton { get; set; }
 
         internal void Listings()
-        {
+        {//clicking on managelistinglink
             manageListingsLink.Click();
 
         }
 
         internal void EditListing()
-        {
+        {//papulating the data from excelsheet
             GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Manage Listings')]"), 10);
             manageListingsLink.Click();
             GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("(//i[@class='outline write icon'])[1]"), 10);
+            //click on edit button
             edit.Click();
             ShareSkill shareSkill = new ShareSkill();
             shareSkill.EditShareSkill();
@@ -86,14 +90,11 @@ namespace MarsFramework.Pages
             GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Manage Listings')]"), 10);
             manageListingsLink.Click();
             GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("(//i[@class='remove icon'])[1]"), 10);
+            //click on delete button
             delete.Click();
             GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//button[contains(.,'Yes')]"), 20);
             clickActionsButton.Click();
         }
 
-        internal void VerifyListing()
-        {
-            delete.Click();
-        }
     }
 }

@@ -113,29 +113,48 @@ namespace MarsFramework.Pages
 
         private void FillSkillDetails()
         {
+            // loading Excelsheet data
             GlobalDefinitions.ExcelLib.PopulateInCollection(MarsResource.ShareSkillExcelPath, "ShareSkill");
             GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Share Skill')]"), 10);
+            // click on ShareSkillButton
             ShareSkillButton.Click();
+            // Sending the data in title input field
             Title.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Title"));
+            //Sending the data in description input field
             Description.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Description"));
+            //selecting the element from category dropdown
             SelectElement Category = new SelectElement(CategoryDropDown);
+            //Selecting the element by text
             Category.SelectByText(GlobalDefinitions.ExcelLib.ReadData(2, "Category"));
+            //selecting the element from subcategory dropdown
             SelectElement SubCategory = new SelectElement(SubCategoryDropDown);
+            //Selecting the element by text
             SubCategory.SelectByText(GlobalDefinitions.ExcelLib.ReadData(2, "SubCategory"));
+            //Adding the tag in tags inpute field
             Tags.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Tags") + "\n");
+            //Selecting the service type option
             ServiceTypeOptions.Click();
+            //Selecting the location type option
             LocationTypeOption.Click();
+            //Selecting the start date
             StartDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Startdate"));
+            //selecting the end date
             EndDateDropDown.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Enddate"));
+            //click on days button
             Days.Click();
+            //sending the data in start time inpute field
             StartTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Starttime"));
+            //sending the data in end time inpute field
             EndTime.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Endtime"));
+            //click on skilltrade option
             SkillTradeOption.Click();
+            //sending the data in skillexchange inpute field
             SkillExchange.SendKeys(GlobalDefinitions.ExcelLib.ReadData(2, "Skill-Exchange") + "\n");
+            //clicking on active option button
             ActiveOption.Click();
 
-            UploadImage.Click();
-            AutoITFileUpload.UploadFile();
+           // UploadImage.Click();
+            //AutoITFileUpload.UploadFile();
             Save.Click();
         }
 
