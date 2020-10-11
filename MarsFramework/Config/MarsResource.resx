@@ -126,10 +126,10 @@
     <comment>Login Id</comment>
   </data>
   <data name="ExcelPath" xml:space="preserve">
-    <value>C:\Users\Shilpi\source\repos\marsframework\MarsFramework\ExcelData\TestData.xlsx</value>
+    <value>C:\Users\Shilpi\repo\marsframework\MarsFramework\ExcelData\TestData.xlsx</value>
   </data>
   <data name="ExtentReportConfigFilePath" xml:space="preserve">
-    <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\extent-config.xml</value>
+    <value>C:\Users\Shilpi\repo\marsframework\MarsFramework\extent-config.xml</value>
     <comment>Extent report Config file path</comment>
   </data>
   <data name="ExtentReportFileName" xml:space="preserve">
@@ -141,7 +141,7 @@
     <comment>If true Login, else Register</comment>
   </data>
   <data name="ManageListingsExcelPath" xml:space="preserve">
-    <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\ExcelData\TestDataManageListings.xlsx</value>
+    <value>C:\Users\Shilpi\repo\marsframework\MarsFramework\ExcelData\TestDataManageListings.xlsx</value>
     <comment>Store the path for Manage Listing</comment>
   </data>
   <data name="Password" xml:space="preserve">
@@ -149,19 +149,19 @@
     <comment>Password for applicatio</comment>
   </data>
   <data name="ReportPath" xml:space="preserve">
-    <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\TestReports</value>
+    <value>C:\Users\Shilpi\repo\marsframework\MarsFramework\TestReports</value>
   </data>
   <data name="ReportXMLPath" xml:space="preserve">
-    <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\TestReports\ExtentReports 2.0_files</value>
+    <value>C:\Users\Shilpi\repo\marsframework\MarsFramework\TestReports\ExtentReports 2.0_files</value>
   </data>
   <data name="ScreenShotPath" xml:space="preserve">
-    <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\TestReports\Screenshots</value>
+    <value>C:\Users\Shilpi\repo\marsframework\MarsFramework\TestReports\Screenshots</value>
   </data>
   <data name="ShareSkillExcelPath" xml:space="preserve">
-    <value>C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\ExcelData\TestDataShareSkill.xlsx</value>
+    <value>C:\Users\Shilpi\repo\marsframework\MarsFramework\ExcelData\TestDataShareSkill.xlsx</value>
   </data>
   <data name="UploadImage" xml:space="preserve">
-    <value>C:\Users\Shilpi\source\repos\marsframework\MarsFramework\TestReports\Screenshots\Automation.png</value>
+    <value>C:\Users\Shilpi\repo\marsframework\MarsFramework\TestReports\Screenshots\Automation.png</value>
     <comment>Path of the file to get uploaded</comment>
   </data>
   <data name="url" xml:space="preserve">

@@ -122,13 +122,20 @@
     <Compile Include="Global\Base.cs" />
     <Compile Include="Global\ExtendReportManager.cs" />
     <Compile Include="Global\GlobalDefinitions.cs" />
+    <Compile Include="Pages\CertificationPage.cs" />
+    <Compile Include="Pages\EducationPage.cs" />
+    <Compile Include="Pages\LanguagePage.cs" />
     <Compile Include="Pages\ManageListings.cs" />
     <Compile Include="Pages\ShareSkill.cs" />
     <Compile Include="Pages\SignIn.cs" />
     <Compile Include="Pages\SignUp.cs" />
     <Compile Include="Pages\Profile.cs" />
+    <Compile Include="Pages\SkillPage.cs" />
+    <Compile Include="Test\AdvanceTasks.cs" />
     <Compile Include="Test\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\DropDownSelector.cs" />
+    <Compile Include="Utils\XpathConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Config\MarsResource.resx">

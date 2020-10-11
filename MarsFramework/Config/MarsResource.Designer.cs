@@ -79,7 +79,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Users\Shilpi\source\repos\marsframework\MarsFramework\ExcelData\TestData.xlsx.
+        ///   Looks up a localized string similar to C:\Users\Shilpi\repo\marsframework\MarsFramework\ExcelData\TestData.xlsx.
         /// </summary>
         internal static string ExcelPath {
             get {
@@ -88,7 +88,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\extent-config.xml.
+        ///   Looks up a localized string similar to C:\Users\Shilpi\repo\marsframework\MarsFramework\extent-config.xml.
         /// </summary>
         internal static string ExtentReportConfigFilePath {
             get {
@@ -115,7 +115,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\ExcelData\TestDataManageListings.xlsx.
+        ///   Looks up a localized string similar to C:\Users\Shilpi\repo\marsframework\MarsFramework\ExcelData\TestDataManageListings.xlsx.
         /// </summary>
         internal static string ManageListingsExcelPath {
             get {
@@ -133,7 +133,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\TestReports.
+        ///   Looks up a localized string similar to C:\Users\Shilpi\repo\marsframework\MarsFramework\TestReports.
         /// </summary>
         internal static string ReportPath {
             get {
@@ -142,7 +142,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\TestReports\ExtentReports 2.0_files.
+        ///   Looks up a localized string similar to C:\Users\Shilpi\repo\marsframework\MarsFramework\TestReports\ExtentReports 2.0_files.
         /// </summary>
         internal static string ReportXMLPath {
             get {
@@ -151,7 +151,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\TestReports\Screenshots.
+        ///   Looks up a localized string similar to C:\Users\Shilpi\repo\marsframework\MarsFramework\TestReports\Screenshots.
         /// </summary>
         internal static string ScreenShotPath {
             get {
@@ -160,7 +160,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Users\Shilpi\Source\Repos\marsframework\MarsFramework\ExcelData\TestDataShareSkill.xlsx.
+        ///   Looks up a localized string similar to C:\Users\Shilpi\repo\marsframework\MarsFramework\ExcelData\TestDataShareSkill.xlsx.
         /// </summary>
         internal static string ShareSkillExcelPath {
             get {
@@ -169,7 +169,7 @@ namespace MarsFramework.Config {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Users\Shilpi\source\repos\marsframework\MarsFramework\TestReports\Screenshots\Automation.png.
+        ///   Looks up a localized string similar to C:\Users\Shilpi\repo\marsframework\MarsFramework\TestReports\Screenshots\Automation.png.
         /// </summary>
         internal static string UploadImage {
             get {

@@ -1,19 +1,21 @@
-﻿using OpenQA.Selenium;
+﻿using MarsFramework.Config;
+using MarsFramework.Global;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace MarsFramework
 {
-    internal class Profile
+    internal class AddLanguage
     {
 
-        public Profile()
+        public AddLanguage()
         {
             PageFactory.InitElements(Global.GlobalDefinitions.driver, this);
         }
 
         #region  Initialize Web Elements 
         //Click on Edit button
-        [FindsBy(How = How.XPath, Using = "//span[contains(text(),'Part Time')]//i[@class='right floated outline small write icon']")]
+        [FindsBy(How = How.XPath, Using = "(//i[@class='right floated outline small write icon'])[1]")]
         private IWebElement AvailabilityTimeEdit { get; set; }
 
         //Click on Availability Time dropdown
@@ -24,9 +26,36 @@ namespace MarsFramework
         [FindsBy(How = How.XPath, Using = "//option[@value='0']")]
         private IWebElement AvailabilityTimeOpt { get; set; }
 
+
+
+
+        [FindsBy(How = How.XPath, Using = "(//i[@class='right floated outline small write icon'])[2]")]
+        private IWebElement AvailabilityHoursEdit { get; set; }
+
         //Click on Availability Hour dropdown
-        [FindsBy(How = How.XPath, Using = "//*[@id='account-profileEdit-section']/div/section[2]/div/div/div/form/div[1]/div/div[3]/div")]
+        [FindsBy(How = How.XPath, Using = "//select[@name='availabiltyHour']")]
         private IWebElement AvailabilityHours { get; set; }
+
+        //Click on Availability Time option
+        [FindsBy(How = How.XPath, Using = "//option[@value='0']")]
+        private IWebElement AvailabilityHoursOpt { get; set; }
+
+        /// <summary>
+
+        [FindsBy(How = How.XPath, Using = "(//i[@class='right floated outline small write icon'])[3]")]
+        private IWebElement EarnTargetEdit { get; set; }
+
+        //Click on Availability Hour dropdown
+        [FindsBy(How = How.XPath, Using = "//select[@name='availabiltyTarget']")]
+        private IWebElement EarnTargetDropdown { get; set; }
+
+        //Click on Availability Time option
+        [FindsBy(How = How.XPath, Using = "//option[@value='0']")]
+        private IWebElement EarnTargetOpt { get; set; }
+        /// </summary>
+
+
+
 
         //Click on salary
         [FindsBy(How = How.XPath, Using = "//*[@id='account-profileEdit-section']/div/section[2]/div/div/div/form/div[1]/div/div[4]/div")]
@@ -47,7 +76,7 @@ namespace MarsFramework
         //Choose City
         [FindsBy(How = How.XPath, Using = "//*[@id='account-profileEdit-section']/div/section[2]/div/div/div/form/div[2]/div/div[3]/div/div[2]")]
         private IWebElement CityOpt { get; set; }
-
+        // "//a[@class='item'][contains(.,'Languages')]")
         //Click on Add new to add new Language
         [FindsBy(How = How.XPath, Using = "//*[@id='account-profileEdit-section']/div/section[2]/div/div/div/form/div[3]/div/div[2]/div/table/thead/tr/th[3]/div")]
         private IWebElement AddNewLangBtn { get; set; }
@@ -164,6 +193,28 @@ namespace MarsFramework
 
         internal void EditProfile()
         {
+
+        }
+
+        internal void EditAvailability()
+        {
+            // Availability time edit
+            GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("(//i[contains(@class,'right floated outline small write icon')])[1]"), 10);
+            AvailabilityTimeEdit.Click();
+            AvailabilityTime.Click();
+            AvailabilityTimeOpt.Click();
+            
+            //Availability Hour Edit
+            GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("(//i[@class='right floated outline small write icon'])[2]"), 10);
+            AvailabilityHoursEdit.Click();
+            AvailabilityHours.Click();
+            AvailabilityHoursOpt.Click();
+
+            // Earn Target edit
+            GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("(//i[@class='right floated outline small write icon'])[3]"), 10);
+            EarnTargetEdit.Click();
+            EarnTargetDropdown.Click();
+            EarnTargetOpt.Click();
 
         }
     }
