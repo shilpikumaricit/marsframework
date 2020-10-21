@@ -123,9 +123,12 @@
     <Compile Include="Global\ExtendReportManager.cs" />
     <Compile Include="Global\GlobalDefinitions.cs" />
     <Compile Include="Pages\CertificationPage.cs" />
+    <Compile Include="Pages\ChangePassword.cs" />
+    <Compile Include="Pages\Description.cs" />
     <Compile Include="Pages\EducationPage.cs" />
     <Compile Include="Pages\LanguagePage.cs" />
     <Compile Include="Pages\ManageListings.cs" />
+    <Compile Include="Pages\SearchSkillByCategory.cs" />
     <Compile Include="Pages\ShareSkill.cs" />
     <Compile Include="Pages\SignIn.cs" />
     <Compile Include="Pages\SignUp.cs" />

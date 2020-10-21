@@ -1,11 +1,8 @@
-﻿using System.Threading;
-using MarsFramework.Config;
+﻿using MarsFramework.Config;
 using MarsFramework.Global;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
-using AutoItX3Lib;
-using static MarsFramework.Global.GlobalDefinitions;
 //using RelevantCodes.ExtentReports.Model;
 
 namespace MarsFramework.Pages
@@ -109,8 +106,7 @@ namespace MarsFramework.Pages
         internal void EditShareSkill()
         {
             FillSkillDetails();
-        }
-
+        }//
         private void FillSkillDetails()
         {
             // loading Excelsheet data

@@ -15,18 +15,11 @@ namespace MarsFramework.Test
     class AdvanceTasks : Global.Base
     {
         ExtentTest test;
-
-        
-
-        //
-
         [Test, Order(1)]
         public void AddLanguage()
         {
-
             //Populate the excel data
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Profile");
-
             test = extent.CreateTest("Add Language Skill");
             test.Log(Status.Info, "Starting the Add Language Test");
             LanguagePage AddLanguage = new LanguagePage();
@@ -48,10 +41,8 @@ namespace MarsFramework.Test
         [Test, Order(2)]
         public void AddEducation()
         {
-
             //Populate the excel data
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Profile");
-
             test = extent.CreateTest("Add Education to Profile");
             test.Log(Status.Info, "Starting the Add Education to profile Test");
             EducationPage education = new EducationPage();
@@ -82,10 +73,8 @@ namespace MarsFramework.Test
         [Test, Order(3)]
         public void AddSkill()
         {
-
             //Populate the excel data
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Profile");
-
             test = extent.CreateTest("Add Skill to Profile");
             test.Log(Status.Info, "Starting the Add Skill to profile Test");
             SkillPage skillPage = new SkillPage();
@@ -111,10 +100,8 @@ namespace MarsFramework.Test
         [Test, Order(3)]
         public void AddCertificate()
         {
-
             //Populate the excel data
             GlobalDefinitions.ExcelLib.PopulateInCollection(Base.ExcelPath, "Profile");
-
             test = extent.CreateTest("Add Certificate to Profile");
             test.Log(Status.Info, "Starting the Add Certificate to profile Test");
             CertificationPage certificationPage = new CertificationPage();
@@ -136,7 +123,7 @@ namespace MarsFramework.Test
             }
         }
 
-        [Test, Order(5)]
+        [Test, Order(6)]
         public void EditAvailability()
         {
             test = extent.CreateTest("Add Share Skill");
@@ -154,6 +141,41 @@ namespace MarsFramework.Test
                 test.Log(Status.Fail, "Add Skill Failed");
                 Assert.IsTrue(actual);
             }
+        }
+
+
+        [Test, Order(7)]
+        public void SearchByCategory()
+        {
+            test = extent.CreateTest("Search Skill by Category");
+            test.Log(Status.Info, "Starting the Search Skill by Category");
+            SearchSkillByCategory searchByCategory = new SearchSkillByCategory();
+            searchByCategory.gotoHomePage();
+
+            bool actual = searchByCategory.isCategoriesPresent();
+            if (actual)
+            {
+                test.Log(Status.Pass, "Add Skill Successfull");
+                Assert.IsTrue(actual);
+            }
+            else
+            {
+                test.Log(Status.Fail, "Add Skill Failed");
+                Assert.IsTrue(actual);
+            }
+        }
+        [Test, Order(5)]
+        public void AddDescription()
+        {
+            Description description = new Description();
+            description.AddDescription();
+        }
+
+        [Test, Order(7)]
+        public void UpdatePassword()
+        {
+            ChangePassword changePassword = new ChangePassword();
+            changePassword.UpdatePassword();
         }
 
     }
