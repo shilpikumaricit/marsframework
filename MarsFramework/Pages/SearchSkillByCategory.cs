@@ -31,6 +31,22 @@ namespace MarsFramework.Pages
         [FindsBy(How = How.XPath, Using = "//b[contains(.,'All Categories')]")]
         private IWebElement AllCategoryButton { get; set; }
 
+        //Search field on all category 
+        [FindsBy(How = How.XPath, Using = "(//input[@type='text'])[2]")]
+        private IWebElement searchText { get; set; }
+
+        //Search button on all category 
+        [FindsBy(How = How.XPath, Using = "//button[contains(.,'Search')]")]
+        private IWebElement searchButton { get; set; }
+
+        //Search Result on all category 
+        [FindsBy(How = How.XPath, Using = "//p[@class='row-padded'][contains(.,'Java Trainer')]")]
+        private IWebElement searchResult { get; set; }
+
+        //Search Result on filter
+        [FindsBy(How = How.XPath, Using = "//button[contains(.,'Online')]")]
+        private IWebElement searchResultByFilter { get; set; }
+
         public void gotoHomePage()
         {
             GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Mars Logo')]"), 2000);
@@ -39,6 +55,38 @@ namespace MarsFramework.Pages
             ProgrammingTechButton.Click();
          //   Thread.Sleep(10000);
 //            AllCategoryButton.Click();
+        }
+
+        public bool searchSkill()
+        {
+            GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Mars Logo')]"), 2000);
+            MarsLogoButton.Click();
+            Thread.Sleep(2000);
+            searchText.SendKeys("Java");
+            searchButton.Click();
+            Thread.Sleep(2000);
+            string result = searchResult.Text;
+            Console.WriteLine("search result text:: "+result);
+            return result.Length > 0 ? true : false;
+
+        }
+
+
+        public bool searchSkillByFilter()
+        {
+            GlobalDefinitions.WaitForElement(GlobalDefinitions.driver, By.XPath("//a[contains(.,'Mars Logo')]"), 2000);
+            MarsLogoButton.Click();
+            Thread.Sleep(2000);
+            searchText.SendKeys("Java");
+            searchButton.Click();
+
+            Thread.Sleep(2000);
+            searchResultByFilter.Click();
+            Thread.Sleep(2000);
+            string result = searchResult.Text;
+            Console.WriteLine("search result text:: " + result);
+            return result.Length > 0 ? true : false;
+
         }
 
         public bool isCategoriesPresent()

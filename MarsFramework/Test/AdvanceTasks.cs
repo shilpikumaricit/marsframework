@@ -164,6 +164,48 @@ namespace MarsFramework.Test
                 Assert.IsTrue(actual);
             }
         }
+
+        [Test, Order(8)]
+        public void SearchSkill()
+        {
+            test = extent.CreateTest("Search Skill by text ");
+            test.Log(Status.Info, "Starting the Search Skill by Text");
+            SearchSkillByCategory searchByCategory = new SearchSkillByCategory();
+
+            bool actual = searchByCategory.searchSkill();
+            if (actual)
+            {
+                test.Log(Status.Pass, "Search Skill by text is Successfull");
+                Assert.IsTrue(actual);
+            }
+            else
+            {
+                test.Log(Status.Fail, "Search Skill by text Failed");
+                Assert.IsTrue(actual);
+            }
+        }
+
+        [Test, Order(9)]
+        public void SearchSkillByFilter()
+        {
+            test = extent.CreateTest("Search Skill by filter ");
+            test.Log(Status.Info, "Starting the Search Skill by Filter");
+            SearchSkillByCategory searchByCategory = new SearchSkillByCategory();
+
+            bool actual = searchByCategory.searchSkillByFilter();
+            if (actual)
+            {
+                test.Log(Status.Pass, "Search Skill by filter is Successfull");
+                Assert.IsTrue(actual);
+            }
+            else
+            {
+                test.Log(Status.Fail, "Search Skill by filter Failed");
+                Assert.IsTrue(actual);
+            }
+        }
+
+
         [Test, Order(5)]
         public void AddDescription()
         {
@@ -171,7 +213,7 @@ namespace MarsFramework.Test
             description.AddDescription();
         }
 
-        [Test, Order(7)]
+        [Test, Order(10)]
         public void UpdatePassword()
         {
             ChangePassword changePassword = new ChangePassword();
